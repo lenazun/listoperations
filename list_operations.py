@@ -129,11 +129,12 @@ def custom_extend(input_list, values):
     input_list += values[:]
     return input_list
 
-def custom_insert(input_list, index, value):  #FAILING 
+def custom_insert(input_list, index, value):  
     """custom_insert(input_list, index, value) imitates
     input_list.insert(index, value)
     """
-    pass
+    input_list[:index] += [value]
+    return input_list
 
 def custom_remove(input_list, value): 
     """custom_remove(input_list, value) imitates input_list.remove(value)"""
@@ -168,7 +169,7 @@ def custom_count(input_list, value):
             count += 1
     return count 
 
-def custom_reverse(input_list):  #FAILING
+def custom_reverse(input_list): 
     """custom_reverse(input_list) imitates input_list.reverse()"""
 
     how_long = custom_len(input_list)
@@ -179,6 +180,7 @@ def custom_reverse(input_list):  #FAILING
         temp = input_list[count]
         input_list[count] = input_list[-(count+1)]
         input_list[-(count+1)] = temp
+        count += 1
     return input_list
 
 
