@@ -129,25 +129,17 @@ def custom_extend(input_list, values):
     input_list += values[:]
     return input_list
 
-def custom_insert(input_list, index, value):  #FAILING FOR INDEX 0
+def custom_insert(input_list, index, value):  #FAILING 
     """custom_insert(input_list, index, value) imitates
     input_list.insert(index, value)
     """
-    half1 = input_list[:index]
-    if index == 0:
-        half2 = input_list[index:]
-    else:
-        half2 = input_list[index + 1:]
-    input_list = half1  + [value] + half2
+    pass
 
-    return input_list
-
-def custom_remove(input_list, value): #FAILING
+def custom_remove(input_list, value): 
     """custom_remove(input_list, value) imitates input_list.remove(value)"""
-    for i in input_list:
-        if i == value:
-            del i
-            break
+    
+    x = custom_index(input_list,value)
+    del input_list[x]
 
     return input_list            
 
@@ -168,7 +160,6 @@ def custom_index(input_list, value):
     return count 
 
 
-
 def custom_count(input_list, value):
     """custom_count(input_list, value) imitates input_list.count(value)"""
     count = 0
@@ -179,11 +170,12 @@ def custom_count(input_list, value):
 
 def custom_reverse(input_list):  #FAILING
     """custom_reverse(input_list) imitates input_list.reverse()"""
-    how_long = custom_len(input_list)
-    middle_point = (how_long/2) + 1
-    count = 0
 
-    for i in input_list:
+    how_long = custom_len(input_list)
+    middle_point = (how_long/2) 
+    
+    count = 0
+    for i in input_list[middle_point:]:
         temp = input_list[count]
         input_list[count] = input_list[-(count+1)]
         input_list[-(count+1)] = temp
